@@ -1,4 +1,4 @@
-define(['utils/pnote/PNote'], function (PNote) {
+define(['baseUrl/demo/pnote/Pre'], function (PNote) {
 	'use strict';
 
 	var pNote = new PNote();

@@ -1,6 +1,6 @@
 define([
 	'./demo/dir/SeedDir',
-	'./utils/pnote/SeedPNote'
+	'./demo/pnote/SeedPNote'
 ], function (module) {
 	'use strict';
 
