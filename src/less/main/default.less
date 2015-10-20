@@ -160,6 +160,17 @@ html
 		header
 		{
 			margin-top: 1.5em;
+
+			> figure {
+
+				> figcaption {
+					color: @h2;
+					font-weight: bold;
+					width: auto;
+					margin: .5em 2em;
+					padding: 0;
+				}
+			}
 		}
 
 		header,
@@ -260,6 +271,10 @@ html
 			> section {
 				> article {
 					column-count: 3;
+
+					ul > li {
+						margin: 0 0 1em;
+					}
 				}
 			}
 		}
