@@ -7,7 +7,7 @@ require.config({
 		requirejs: '../../bower_components/requirejs/require',
 		canjs: '../../bower_components/canjs/can.jquery',
 		text: '../../bower_components/text/text',
-		debug: 'demo/debug/Debug'
+		debug: './demo/debug/Debug'
 	},
 	packages: [
 
