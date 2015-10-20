@@ -15,7 +15,6 @@
     "almond": "^0.2.5",
     "text": "^2.0.10",
     "easeless": "^0.1.0",
-	"reset-css": "^2.0.0",
-	"font-awesome": "^4.2.0"
+	"reset-css": "^2.0.0"
   }
 }
