@@ -2,7 +2,7 @@ define(['can', 'debug'], function (can, Debug) {
 	'use strict';
 	return can.Control.extend({
 		defaults: {
-			debug: true,
+			debug: false,
 			operators: ['+', '-', '*', '/']
 		}
 	}, {
