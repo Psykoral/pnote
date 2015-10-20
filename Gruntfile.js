@@ -111,13 +111,13 @@ module.exports = function (grunt) {
 		concurrent: {
 			test: [
 				'jshint',
-				'jscs'//,
-				//'jasmine:spec'
+				'jscs',
+				'jasmine:spec'
 			],
 			main: [
 				'jshint',
 				'jscs',
-				//'jasmine:spec',
+				'jasmine:spec',
 				'less:dist',
 				'less:min',
 				'requirejs:combine',
@@ -125,7 +125,7 @@ module.exports = function (grunt) {
 			],
 			demo: [
 				'jshint',
-				//'jasmine:spec',
+				'jasmine:spec',
 				'requirejs:demo',
 				'requirejs:combine'
 			]
@@ -192,17 +192,6 @@ module.exports = function (grunt) {
 			}
 		},
 		copy: {
-			dist: {
-				files: [
-					{
-						expand: true,
-						cwd: 'bower_components/font-awesome/fonts',
-						src: ['*'],
-						dest: '<%=conf.dist%>/font',
-						filter: 'isFile'
-					}
-				]
-			},
 			temp: {
 				files: [
 					{
@@ -213,8 +202,7 @@ module.exports = function (grunt) {
 						src: [
 							'img/*',
 							'css/*',
-							'js/*',
-							'font/**/*'
+							'js/*'
 						]
 					},
 					{
@@ -295,14 +283,14 @@ module.exports = function (grunt) {
 				}
 			},
 			livetests: {
-				src: '<%=conf.temp%>/src/js/**/*.js',
-				cwd: '<%=conf.temp%>',
+				src: '<%=conf.src%>/js/**/*.js',
+				cwd: '<%=conf.src%>',
 				options: {
-					specs: '<%=conf.temp%>/tests/**/*Spec.js',
+					specs: 'tests/**/*Spec.js',
 					keepRunner: true,
 					outfile: '<%=conf.temp%>/tests.html',
 					templateOptions: {
-						requireConfigFile: ['<%=conf.temp%>/src/js/config.js']
+						requireConfigFile: ['<%=conf.src%>/js/config.js']
 					}
 				}
 			},
@@ -448,8 +436,8 @@ module.exports = function (grunt) {
 					'spec/**/*.js'
 				],
 				tasks: [
-					'jshint:spec'//,
-					//'jasmine:spec'
+					'jshint:spec',
+					'jasmine:spec'
 				]
 			},
 			livetests: {
@@ -484,7 +472,6 @@ module.exports = function (grunt) {
 				files: [
 					'<%=conf.temp%>/css/*',
 					'<%=conf.temp%>/js/*',
-					'<%=conf.temp%>/font/*',
 					'<%=conf.temp%>/{,*/}*.html'
 				]
 			}
@@ -496,7 +483,6 @@ module.exports = function (grunt) {
 	grunt.registerTask('build', [
 		'clean',
 		'concurrent:main',
-		'copy:dist',
 		'concat:dist-js',
 		'concat:dist-min-js'
 	]);
@@ -513,7 +499,9 @@ module.exports = function (grunt) {
 		'assemble:docs',
 		'less:dist',
 		'concurrent:demo',
-		'copy:dist',
+		'copy:livetests',
+		'jasmine:livetests',
+		'string-replace',
 		'copy:temp'
 	]);
 
