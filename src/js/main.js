@@ -1,6 +1,6 @@
 /**
- * @file Flippydisk Grunt Starter Kit
- * @author Adobe Client Engineering
+ * @file main
+ * @author Jim O'Harra-Sutton
  * @version: 0.0.1
  * @extends demo
  */
