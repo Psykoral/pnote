@@ -34,6 +34,10 @@ define(['can'], function (can) {
 		init: function (el, options) {
 			if (!options.debug && typeof options.control != null && window.location.search.indexOf('flippy:debug=' + options.control) > -1) {
 				this.options.debug = true;
+				this.header = can.$('header figure figcaption');
+				if (this.header.text() === '') {
+					this.header.text('Debug mode on. Use F12 to view the console logs.');
+				}
 				this.log('Enabling URL Debug mode for ' + this.options.control);
 			}
 		},
