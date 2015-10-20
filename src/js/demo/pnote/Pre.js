@@ -1,4 +1,4 @@
-define(['can'], function (can) {
+define(['can', 'debug'], function (can, Debug) {
 	'use strict';
 	return can.Control.extend({
 		defaults: {
@@ -7,14 +7,15 @@ define(['can'], function (can) {
 		}
 	}, {
 		init: function () {
-			console.log('----------------------------------------PNote--------------------------------------------------');
+			this.debug = new Debug(this.element, {debug: this.options.debug, control: 'PNote'});
+			this.debug.log('----------------------------------------PNote--------------------------------------------------');
 		},
 		inReverse: function (str) {
 			return str.split('').reverse().join('');
 		},
 		isNumeric: function (parse) {
-			console.log('parse', parse);
-			console.log('is it a number?', !isNaN(parseFloat(parse)) && isFinite(parse));
+			this.debug.log(['parse', parse]);
+			this.debug.log(['is it a number?', !isNaN(parseFloat(parse)) && isFinite(parse)]);
 			return !isNaN(parseFloat(parse)) && isFinite(parse);
 		},
 		calc: function (prefix) {
@@ -23,33 +24,38 @@ define(['can'], function (can) {
 				postfix = this.inReverse(prefix.replace(/["'()]/g, "")).split(' '),
 				i;
 
-			console.log('postfix', postfix);
+			this.debug.log(['postfix', postfix]);
 
 			for (i = 0; i < postfix.length; i++) {
 				if (postfix[i].length > 1) {
 					postfix[i] = this.inReverse(postfix[i]);
 				}
 
-				console.log('postfix[i]', postfix[i]);
+				this.debug.log(['postfix[i]', postfix[i]]);
 
 				if (this.isNumeric(postfix[i])) {
+					this.debug.log(['Its numeric, adding', postfix[i]]);
 					results.push(postfix[i]);
 				} else {
-					console.log('Found an operator', postfix[i]);
-					console.log('is it last?', i, ' ~ ', postfix.length - 1);
-					console.log('answer', answer);
+					this.debug.log(['Found an operator', postfix[i]]);
+					this.debug.log(['is it last?', i, ' ~ ', postfix.length - 1]);
+					this.debug.log(['answer', answer]);
+
+					if (results.length == 2 && postfix[i] == '-') {
+						results = results.reverse();
+					}
 					answer.push(this.ops(postfix[i], results));
-					console.log('answer', answer);
+					this.debug.log(['answer', answer]);
 					results = [];
-					console.log('empty the resultStack', results);
+					this.debug.log(['empty the resultStack', results]);
 
 					if (typeof postfix[i + 1] !== 'undefined' && !this.isNumeric(postfix[i + 1])) {
 						answer = this.ops(postfix[i + 1], [answer[1], answer[0]]);
-						console.log('last item is an OP, recalculating answer:', answer);
+						this.debug.log(['last item is an OP, recalculating answer:', answer]);
 						break;
 					} else if (answer.length > 1) {
 						answer = this.ops(postfix[i], [answer[1], answer[0]]);
-						console.log('recalculating answer:', answer);
+						this.debug.log(['recalculating answer:', answer]);
 					}
 				}
 			}
