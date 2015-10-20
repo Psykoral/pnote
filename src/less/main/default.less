@@ -256,6 +256,12 @@ html
 		{
 			width: 84%;
 			float: left;
+
+			> section {
+				> article {
+					column-count: 3;
+				}
+			}
 		}
 
 		details
@@ -319,6 +325,12 @@ html
 			{
 				width: 100%;
 				float: none;
+
+				> section {
+					> article {
+						column-count: 2;
+					}
+				}
 			}
 		}
 
@@ -329,6 +341,14 @@ html
 				width: 99%;
 				padding-right: 1%;
 				float: none;
+			}
+
+			main {
+				> section {
+					> article {
+						column-count: 1;
+					}
+				}
 			}
 		}
 	}

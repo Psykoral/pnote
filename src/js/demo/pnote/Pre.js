@@ -1,65 +1,103 @@
-define(['can', 'debug'], function (can, Debug) {
+define(['can'], function (can) {
 	'use strict';
 	return can.Control.extend({
 		defaults: {
-			debug: true
+			debug: true,
+			operators: ['+', '-', '*', '/']
 		}
 	}, {
 		init: function () {
-			this.debug = new Debug({debug: this.options.debug, control: 'Pnote'});
-			this.debug.log('----------------------------------------PNote--------------------------------------------------');
-			this.operators = {
-				"+": function (a, b) {
-					return a + b
-				},
-				"-": function (a, b) {
-					return a - b
-				},
-				"*": function (a, b) {
-					return a * b
-				},
-				"/": function (a, b) {
-					return a / b
-				}
-			};
+			console.log('----------------------------------------PNote--------------------------------------------------');
 		},
-		calc: function (exp) {
-			/**
-			 * Stack to keep track of operands
-			 */
-			var stack = [],
-				cursor,
-				current,
-				leftOperand,
-				rightOperand,
-				result;
-			// scanning from right to left
-			for (cursor = exp.length; cursor--;) {
-				current = exp[cursor];
+		inReverse: function (str) {
+			return str.split('').reverse().join('');
+		},
+		isNumeric: function (parse) {
+			console.log('parse', parse);
+			console.log('is it a number?', !isNaN(parseFloat(parse)) && isFinite(parse));
+			return !isNaN(parseFloat(parse)) && isFinite(parse);
+		},
+		calc: function (prefix) {
+			var results = [],
+				answer = [],
+				postfix = this.inReverse(prefix.replace(/["'()]/g, "")).split(' '),
+				i;
 
-				// if it's an operand, then push it onto the stack
-				if (/\d/.test(current)) {
-					stack.push(current);
-				} else if (current in this.operators) {
+			console.log('postfix', postfix);
 
-					// we pop (previously pushed) operands from
-					// the stack and apply the operator to them
-					leftOperand = +stack.pop();
-					rightOperand = +stack.pop();
+			for (i = 0; i < postfix.length; i++) {
+				if (postfix[i].length > 1) {
+					postfix[i] = this.inReverse(postfix[i]);
+				}
 
-					// we compute the result and push it onto the stack
-					result = this.operators[current](leftOperand, rightOperand);
-					stack.push(result);
+				console.log('postfix[i]', postfix[i]);
+
+				if (this.isNumeric(postfix[i])) {
+					results.push(postfix[i]);
+				} else {
+					console.log('Found an operator', postfix[i]);
+					console.log('is it last?', i, ' ~ ', postfix.length - 1);
+					console.log('answer', answer);
+					answer.push(this.ops(postfix[i], results));
+					console.log('answer', answer);
+					results = [];
+					console.log('empty the resultStack', results);
+
+					if (typeof postfix[i + 1] !== 'undefined' && !this.isNumeric(postfix[i + 1])) {
+						answer = this.ops(postfix[i + 1], [answer[1], answer[0]]);
+						console.log('last item is an OP, recalculating answer:', answer);
+						break;
+					} else if (answer.length > 1) {
+						answer = this.ops(postfix[i], [answer[1], answer[0]]);
+						console.log('recalculating answer:', answer);
+					}
 				}
 			}
 
-			return stack[0];
+			if (can.isArray(answer) && answer.length == 1) {
+				return answer.pop();
+			} else if (!can.isArray(answer) && this.isNumeric(parseInt(answer))) {
+				return answer;
+			} else {
+				return 'error';
+			}
+		},
+		ops: function (op, stack) {
+			var results = 0;
+
+			can.each(stack, function (v, i) {
+				if (i == 0) {
+					results = parseInt(v);
+				} else {
+					switch (op) {
+						case '+':
+							results = results + parseInt(v);
+							break;
+						case '-':
+							results = results - parseInt(v);
+							break;
+						case '*':
+							results = results * parseInt(v);
+							break;
+						case '/':
+							results = results / parseInt(v);
+							break;
+					}
+				}
+			});
+
+			return results;
+		},
+		showResult: function (el) {
+			var result = this.calc(el.val());
+			if (el.next('span').length > 0) {
+				el.next('span').remove();
+			}
+			el.after('<span> = ' + result + '</span>');
 		},
 		"click": function (el, ev) {
 			ev.preventDefault();
-			var result = this.calc(el.val());
-			console.log('result', result);
-			el.append('<span> = ' + result + '</span>');
+			this.showResult(el);
 		}
 	});
 });

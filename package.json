@@ -1,69 +1,66 @@
 {
-  "name": "grunt-starter-kit",
-  "version": "0.0.1",
-  "description": "Grunt stack starter kit",
-  "main": "Gruntfile.js",
-  "scripts": {
-    "test": "grunt test",
-    "build": "grunt build",
-    "compile": "grunt",
-    "web": "grunt live"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Psykoral/grunt-starter-kit.git"
-  },
-  "keywords": [
-    "grunt",
-    "node",
-    "starter kit",
-    "lessss",
-    "canjs",
-    "font awesome"
-  ],
-  "author": "Flippydisk",
-  "contributors": [
-    {
-      "name": "Psykoral",
-      "email": "psykoral@flippydisk.com"
-    }
-  ],
-  "homepage": "http://flippydisk.com",
-  "licenses": {
-    "type": "MIT",
-    "url": "http://rem.mit-license.org/"
-  },
-  "dependencies": {
-    "grunt-template-jasmine-requirejs": "~0.2.3",
-    "phantomjs": "~1.9.17"
-  },
-  "devDependencies": {
-    "assemble": "~0.4.42",
-    "bower": "^1.0.0",
-    "grunt": "~0.4.5",
-    "grunt-autoprefixer": "^3.0.3",
-    "grunt-bower-requirejs": "^2.0.0",
-    "grunt-concurrent": "~1.0.0",
-    "grunt-contrib-clean": "~0.6.0",
-    "grunt-contrib-compress": "~0.13.0",
-    "grunt-contrib-concat": "~0.5.1",
-    "grunt-contrib-connect": "~0.10.1",
-    "grunt-contrib-copy": "~0.8.0",
-    "grunt-contrib-jasmine": "~0.8.2",
-    "grunt-contrib-jshint": "~0.11.2",
-    "grunt-contrib-less": "~1.0.1",
-    "grunt-contrib-requirejs": "~0.4.4",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-dependo": "~0.1.2",
-    "grunt-jscs": "^1.8.0",
-    "grunt-jsdoc": "^0.6.7",
-    "grunt-string-replace": "^1.2.0",
-    "less-plugin-autoprefix": "^1.4.2",
-    "less-plugin-clean-css": "^1.5.0",
-    "load-grunt-tasks": "~3.2.0",
-    "time-grunt": "~1.2.1"
-  },
-  "engines": {
-    "node": ">=0.10.21"
-  }
+	"name": "pnote",
+	"version": "0.0.1",
+	"description": "Grunt stack starter kit",
+	"main": "Gruntfile.js",
+	"scripts": {
+		"test": "grunt test",
+		"build": "grunt build",
+		"compile": "grunt",
+		"web": "grunt live"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Psykoral/grunt-starter-kit.git"
+	},
+	"keywords": [
+		"grunt",
+		"node",
+		"starter kit",
+		"lessss",
+		"canjs",
+		"font awesome"
+	],
+	"author": "Flippydisk",
+	"contributors": [
+		{
+			"name": "Psykoral",
+			"email": "psykoral@flippydisk.com"
+		}
+	],
+	"homepage": "http://flippydisk.com",
+	"license": "MIT",
+	"dependencies": {
+		"grunt-template-jasmine-requirejs": "~0.2.3",
+		"phantomjs": "~1.9.17"
+	},
+	"devDependencies": {
+		"assemble": "~0.4.42",
+		"bower": "^1.0.0",
+		"grunt": "~0.4.5",
+		"grunt-autoprefixer": "^3.0.3",
+		"grunt-bower-requirejs": "^2.0.0",
+		"grunt-concurrent": "~1.0.0",
+		"grunt-contrib-clean": "~0.6.0",
+		"grunt-contrib-compress": "~0.13.0",
+		"grunt-contrib-concat": "~0.5.1",
+		"grunt-contrib-connect": "~0.10.1",
+		"grunt-contrib-copy": "~0.8.0",
+		"grunt-contrib-jasmine": "~0.8.2",
+		"grunt-contrib-jshint": "~0.11.2",
+		"grunt-contrib-less": "~1.0.1",
+		"grunt-contrib-requirejs": "~0.4.4",
+		"grunt-contrib-watch": "~0.6.1",
+		"grunt-dependo": "~0.1.2",
+		"grunt-jscs": "^1.8.0",
+		"grunt-jsdoc": "^0.6.7",
+		"grunt-string-replace": "^1.2.0",
+		"less-plugin-autoprefix": "^1.4.2",
+		"less-plugin-clean-css": "^1.5.0",
+		"load-grunt-tasks": "~3.2.0",
+		"time-grunt": "~1.2.1"
+	},
+	"engines": {
+		"node": ">=0.10.21"
+	}
 }
