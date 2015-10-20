@@ -1,4 +1,4 @@
-define(['baseUrl/demo/debug/Debug'], function (Debug) {
+define(['demo/debug/Debug'], function (Debug) {
 	'use strict';
 
 	var debug = new Debug();
