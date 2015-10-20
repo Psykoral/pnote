@@ -1,8 +1,9 @@
 {
     "author": "FlippyUI",
-	"title": "grunt-starter-kit",
+	"title": "Prefix notation calculator",
 	"direction": "ltr",
 	"pnote": [
+		"(- 10 6)",
 		"(- 9 (* 3 2))",
 		"(+ 3 (* 3 2))",
 		"(+ (* 2 3) (+ 7 2 3))",
@@ -12,7 +13,7 @@
 		"(- 100 (* 30 20))",
 		"(- 1000 (* 30 20))",
 		"(- 100 (+ 10 20 30 40 50))",
-		"(/ (* 10 10) 2)",
+		"(/ (* 10 10) (+ 2 4))",
 		"invalid test"
 	]
 }
