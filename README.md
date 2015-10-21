@@ -1,7 +1,7 @@
 Prefix Notation
 ====
 Build Status:
-- master: [![Build Status](http://build.flippydisk.com/buildStatus/icon?job=GruntStarterKit)](http://build.flippydisk.com/job/GruntStarterKit/)
+- master: [![Build Status](http://build.flippydisk.com/buildStatus/icon?job=PNote)](http://build.flippydisk.com/job/PNote/)
 
 Project template built from FlippyUI. pnote includes:
 
