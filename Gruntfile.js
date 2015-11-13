@@ -211,7 +211,8 @@ module.exports = function (grunt) {
 						dest: '<%=conf.temp%>',
 						expand: true,
 						src: [
-							'.htaccess'
+							'.htaccess',
+							'*.json'
 						]
 					},
 					{
@@ -436,6 +437,7 @@ module.exports = function (grunt) {
 					'spec/**/*.js'
 				],
 				tasks: [
+					'jscs',
 					'jshint:spec',
 					'jasmine:spec'
 				]
