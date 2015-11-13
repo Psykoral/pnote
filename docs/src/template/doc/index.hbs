@@ -36,3 +36,37 @@ layout: default.hbs
 		</code>
 	</article>
 </section>
+<section>
+	<details>
+		<summary>
+			Find the nth result of the Fibonacci sequence
+		</summary>
+	</details>
+	<article>
+		<p>
+			<input value="" placeholder="nth position in Fibonacci sequence"> <button data-seed-fib>Find it</button>
+		</p>
+		<p>
+			Start with a = 0 and b = 1, get the result. If the index isn't currently the desired Fibonacci sequence position, keep going with the value of <b>'a'</b> now equals <b>'b'</b> and the value of <b>'b'</b> is the previous result. <a href="?flippy:debug=Fib">Jump info Debug mode</a> and view the console logs for more details.
+		</p>
+		<p>
+			Other than some user input testing and data point checking, this is basically it:
+		</p>
+<pre>
+var a = 0,
+	b = 1;
+
+// this.place - 2 because we already start with 0 and 1 in the sequence.
+for (i = 0; i < this.place - 2; i++) {
+	result = a + b;
+
+	if (i != this.place) {
+		a = b;
+		b = result;
+	}
+}
+
+return result;
+</pre>
+	</article>
+</section>
