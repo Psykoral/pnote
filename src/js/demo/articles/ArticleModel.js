@@ -9,7 +9,7 @@ define(['can', 'can/model'], function (can) {
 
 	return can.Model.extend({
 		getArticleData: function () {
-			var service = 'http://localhost/articles.json';
+			var service = window.location.pathname + 'articles.json';
 			return can.$.getJSON(service);
 		}
 	}, {});
