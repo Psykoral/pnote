@@ -17,10 +17,11 @@ html
 	body
 	{
 		height: 100%;
-		margin: 0 1%;
+		margin: 0 auto;
 		padding: 0;
-		width: auto;
 		text-align: left;
+		width: auto;
+		max-width: 96em;
 
 		a
 		{
@@ -99,22 +100,16 @@ html
 			padding-left: 20px;
 			margin-bottom: 1.5em;
 			display: block;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			max-width: 90%;
 		}
 
 		h2,
 		cite
 		{
 			color: @h2;
-		}
-
-		h3
-		{
-
-		}
-
-		h4
-		{
-
 		}
 
 		ul
@@ -147,9 +142,15 @@ html
 			font-weight: bold;
 		}
 
-		img
+		img,
+		iframe
 		{
 			max-width: 100%;
+			text-align: center;
+		}
+
+		img
+		{
 			margin: 0;
 			padding: 0;
 			line-height: 0;
@@ -213,19 +214,38 @@ html
 
 		menu
 		{
-			width: 15%;
-			padding-right: 1%;
-			float: left;
+			width: 30em;
+			padding-left: 1em;
+			float: right;
+
+			section {
+				> details {
+					position: relative;
+				}
+
+				nav,
+				p,
+				figure {
+					position: relative;
+					margin: 20px 20px 20px;
+				}
+			}
+
+			figure {
+				float: left;
+
+				img {
+					max-width: 100px;
+				}
+			}
 		}
 
-		figure
-		{
+		figure {
 			position: relative;
 			margin: 0;
 		}
 
-		header figure:before
-		{
+		header figure:before {
 			position: absolute;
 			top: 0;
 			background: #940B0B;
@@ -234,14 +254,12 @@ html
 			content: "";
 		}
 
-		header figure img
-		{
+		header figure img {
 			position: relative;
 		}
 
 		header figcaption:before,
-		main section:before
-		{
+		main section:before {
 			border-left: 20px solid transparent;
 			border-top: 20px solid #FFFFFF;
 			position: absolute;
@@ -252,8 +270,7 @@ html
 		}
 
 		header figcaption:after,
-		main section:after
-		{
+		main section:after {
 			border-left: 22px solid transparent;
 			border-top: 22px solid #000000;
 			right: -2px;
@@ -263,17 +280,26 @@ html
 			z-index: 1;
 		}
 
-		main
-		{
-			width: 84%;
+		main {
+			width: 64em;
 			float: left;
 
 			> section {
 				> article {
-					column-count: 3;
+					ul {
+						column-count: 3;
 
-					ul > li {
-						margin: 0 0 1em;
+						> li {
+							margin: 0 0 1em;
+						}
+					}
+
+					> p {
+						> strong {
+							display: inline-block;
+							max-width: 100%;
+							overflow: hidden;
+						}
 					}
 				}
 			}
@@ -288,9 +314,7 @@ html
 			height: 20px;
 		}
 
-		article,
-		nav
-		{
+		article {
 			position: relative;
 			margin: 40px 20px 20px;
 		}
@@ -309,10 +333,14 @@ html
 		}
 
 		@media screen and (max-width: @tablet) {
+			header {
+				max-width: 99%;
+			}
+
 			menu
 			{
-				width: 100%;
-				padding-right: 0;
+				width: 99%;
+				padding-left: 0;
 				float: none;
 
 				section
@@ -321,7 +349,7 @@ html
 					padding-right: 0;
 					float: left;
 
-					&:first-of-type
+					&:nth-of-type(odd)
 					{
 						margin-right: 1%;
 					}
@@ -338,13 +366,11 @@ html
 
 			main
 			{
-				width: 100%;
+				width: 99%;
 				float: none;
 
-				> section {
-					> article {
-						column-count: 2;
-					}
+				> section > article > ul{
+					column-count: 2;
 				}
 			}
 		}
@@ -359,10 +385,8 @@ html
 			}
 
 			main {
-				> section {
-					> article {
-						column-count: 1;
-					}
+				> section > article > ul {
+					column-count: 1;
 				}
 			}
 		}

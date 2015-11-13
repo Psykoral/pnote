@@ -1,0 +1,23 @@
+<section>
+	<details>
+		<summary>
+			<a href="{{url}}" target="_blank">{{{title}}}</a>
+		</summary>
+	</details>
+	{{#if articleType}}
+		<figure>
+			<img src="{{attachments.0.images.post-thumbnail.url}}">
+		</figure>
+		<p>
+			{{excerpt}}
+		</p>
+	{{else}}
+		<article>
+			<h2>{{modified}}</h2>
+			{{{content}}}
+			<h2>
+				{{author.first_name author.last_name}}, {{author.name}}
+			</h2>
+		</article>
+	{{/if}}
+</section>
