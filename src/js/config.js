@@ -7,6 +7,7 @@ require.config({
 		requirejs: '../../bower_components/requirejs/require',
 		canjs: '../../bower_components/canjs/can.jquery',
 		text: '../../bower_components/text/text',
+		date: '../../bower_components/datejs/build/date',
 		debug: './demo/debug/Debug'
 	},
 	packages: [
