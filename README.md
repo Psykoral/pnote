@@ -2,7 +2,6 @@
 
 Build Status:
 * master: [![Build Status](https://travis-ci.org/Psykoral/pnote.svg?branch=master)](https://travis-ci.org/Psykoral/pnote)
-	* Note: PhantomJS on Linux is having issues, causing the build to fail.
 
 Project template built from FlippyUI. pnote includes:
 

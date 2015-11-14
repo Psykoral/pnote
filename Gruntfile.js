@@ -491,8 +491,11 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('test', [
 		'clean',
+		'assemble:docs',
 		'less:dist',
-		'concurrent:test'
+		'concurrent:main',
+		'concat:dist-js',
+		'concat:dist-min-js'
 	]);
 
 	grunt.registerTask('package', ['build', 'compress']);
