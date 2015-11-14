@@ -1,7 +1,7 @@
 # Prefix Notation
 
 Build Status:
-* master: [![Build Status](http://build.flippydisk.com/buildStatus/icon?job=PNote)](http://build.flippydisk.com/job/PNote/)
+* master: [![Build Status](https://travis-ci.org/Psykoral/pnote.svg?branch=master)](https://travis-ci.org/Psykoral/pnote)
 	* Note: PhantomJS on Linux is having issues, causing the build to fail.
 
 Project template built from FlippyUI. pnote includes:

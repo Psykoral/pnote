@@ -2,6 +2,7 @@ lib-cov
 node_modules
 bower_components
 .*/
+!.travis.yml
 *.iml
 *.seed
 *.log
