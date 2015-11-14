@@ -1,6 +1,6 @@
 {
 	"name": "pnote",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "Grunt stack starter kit",
 	"main": "Gruntfile.js",
 	"scripts": {
