@@ -3,4 +3,5 @@ node_js:
   - "0.10"
 before_script:
   - npm install grunt-cli -g
+  - chmod +x update.sh
   - ./update.sh
